@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using Empathy.Core;
+using System.Web.Mvc;
 
 namespace Empathy.Api.Controllers
 {

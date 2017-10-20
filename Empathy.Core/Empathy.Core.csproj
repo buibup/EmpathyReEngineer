@@ -30,8 +30,26 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.2\lib\net45\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="InterSystems.Data.CacheClient">
+      <HintPath>lib\InterSystems.Data.CacheClient.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Npgsql, Version=3.2.5.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Npgsql.3.2.5\lib\net45\Npgsql.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.3.0\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,27 +58,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BilledManager.cs" />
-    <Compile Include="DischargeManager.cs" />
+    <Compile Include="DataAccess\CacheConnectorADO.cs" />
+    <Compile Include="DataAccess\CacheConnectorDapper.cs" />
+    <Compile Include="DataAccess\CacheConnectorProcessor.cs" />
+    <Compile Include="DataAccess\DbQuery.cs" />
+    <Compile Include="DataAccess\ICacheDataConnection.cs" />
+    <Compile Include="DataAccess\IMySqlDataConnection.cs" />
+    <Compile Include="DataAccess\IPostgresDataConnection.cs" />
+    <Compile Include="DataAccess\MySqlDataConnector.cs" />
+    <Compile Include="DataAccess\PostgresDataConnector.cs" />
     <Compile Include="DTOs\DischargesDTO.cs" />
+    <Compile Include="DTOs\EpisodeDTO.cs" />
     <Compile Include="DTOs\PatientBilledDTO.cs" />
     <Compile Include="DTOs\PatientDischargesDTO.cs" />
     <Compile Include="DTOs\PatientInfoDTO.cs" />
+    <Compile Include="DTOs\PharCollectDTO.cs" />
     <Compile Include="Entities\AlertMsg.cs" />
     <Compile Include="Entities\Allergy.cs" />
     <Compile Include="Entities\Appointment.cs" />
+    <Compile Include="Entities\BeaconLocation.cs" />
     <Compile Include="Entities\Billed.cs" />
     <Compile Include="Entities\CRM.cs" />
     <Compile Include="Entities\Discharge.cs" />
     <Compile Include="Entities\Episode.cs" />
-    <Compile Include="Entities\ICD.cs" />
+    <Compile Include="Entities\ICD10.cs" />
+    <Compile Include="Entities\ICD9.cs" />
     <Compile Include="Entities\Location.cs" />
-    <Compile Include="IBilledManager.cs" />
-    <Compile Include="IDischargeManager.cs" />
-    <Compile Include="IImageManager.cs" />
-    <Compile Include="ImageManager.cs" />
+    <Compile Include="Entities\PaAdm.cs" />
+    <Compile Include="Entities\PaPatmas.cs" />
+    <Compile Include="Entities\PharPrescNo.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="GlobalConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
